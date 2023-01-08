@@ -1,0 +1,48 @@
+diff --git a/packaging/ciAssemble.sh b/packaging/ciAssemble.sh
+index 251de50..158a060 100755
+--- a/packaging/ciAssemble.sh
++++ b/packaging/ciAssemble.sh
+@@ -18,7 +18,7 @@
+ 
+ VERSION=$(jq -r '.version' package.json)
+ 
+-if [ "$1" == "" ]; then
++if [ -z "$1" ]; then
+     echo "Assembling $VERSION with default settings"
+     IS_LITE=false
+     OUT_DIR=Peacock-v"$VERSION"
+@@ -28,11 +28,19 @@ else
+     OUT_DIR=Peacock-v"$VERSION"-lite
+ fi
+ 
++wget -O LocalGhost-Patcher.zip "https://gitlab.com/grappigegovert/localghost/-/jobs/artifacts/master/download?job=build_patcher"
++wget -O LocalGhost-LICENSE "https://gitlab.com/grappigegovert/localghost/-/raw/master/LICENSE"
++unzip LocalGhost-Patcher.zip
++
+ mkdir "$OUT_DIR"
+ cp packaging/HOW_TO_USE.html "$OUT_DIR"
+ cp PeacockPatcher.exe "$OUT_DIR"
++cp LocalGhostPatcher.exe "$OUT_DIR"
++cp LocalGhost-LICENSE "$OUT_DIR"
+ cp chunk*.js "$OUT_DIR"
+ if [ "$IS_LITE" != true ]; then
++    wget -P nodedist "https://nodejs.org/dist/$(cat .nvmrc)/win-x64/node.exe"
++    wget -P nodedist "https://github.com/nodejs/node/raw/$(cat .nvmrc)/LICENSE"
+     cp -r nodedist "$OUT_DIR"
+ fi
+ cp LICENSE "$OUT_DIR"
+@@ -51,5 +59,13 @@ mkdir "$OUT_DIR"/webui/dist
+ cp webui/dist/*.html "$OUT_DIR"/webui/dist
+ cp -r webui/dist/assets "$OUT_DIR"/webui/dist/assets
+ cp webui/dist/THIRDPARTYNOTICES.txt "$OUT_DIR"/webui/dist/THIRDPARTYNOTICES.txt
++
++# Legacy Escalations Plugin
++wget -P "$OUT_DIR" 'https://cdn.discordapp.com/attachments/839269742850211890/916394545242062868/LegacyEscalationsPlugin.js'
++
+ ls "$OUT_DIR"
+-zip -9 -r "$OUT_DIR".zip "$OUT_DIR"
++# Upload artifacts strips the root directory when zipping artifacts. Move
++# OUT_DIR to another directory to avoid that.
++mkdir out; mv "$OUT_DIR" --target-directory=out
++echo "$OUT_DIR built!"
++echo "VERSION=$OUT_DIR" >> $GITHUB_ENV

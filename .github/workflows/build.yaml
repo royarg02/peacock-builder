@@ -1,0 +1,35 @@
+name: Build
+on:
+  workflow_dispatch:
+    inputs:
+      commit:
+        description: 'Build at this commit/tag. Defaults to HEAD'
+        type: string
+        default: 'HEAD'
+      lite:
+        description: 'Don''t bundle NodeJS'
+        type: boolean
+
+run-name: Commit- ${{ inputs.commit }}, NodeJS- ${{ ! inputs.lite }}
+jobs:
+  build-peacock:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3.3.0
+
+      - if: ${{ inputs.lite }}
+        name: Build Peacock without bundling NodeJS
+        run: ./run-lite.sh ${{ inputs.commit }}
+
+      - if: ${{ ! inputs.lite }}
+        name: Build Peacock bundling NodeJS
+        run: ./run.sh ${{ inputs.commit }}
+
+      - name: Upload artifacts
+        if: success()
+        uses: actions/upload-artifact@v3.1.2
+        with:
+          name: '${{ env.VERSION }}'
+          path: 'Peacock/out'
+          if-no-files-found: error
