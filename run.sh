@@ -27,8 +27,16 @@ cd "$peacock" || exit 1
 # Switch to provided commit/tag. Defaults to HEAD
 git checkout "$1"
 
-# Apply the copied patches
-find . -maxdepth 1 -regextype posix-egrep -regex '.*\.(rev)?patch' -exec git apply -- {} \;
+# Reverse apply the ".revpatch" files before checking if they are an ancestor of
+# the HEAD
+find . -maxdepth 1 -regextype posix-egrep -regex '.*\.revpatch' | while read -r file; do
+  if git merge-base --is-ancestor "$(head -n1 "$file" | cut -d ' ' -f 2)" HEAD; then
+    git apply -R "$file"
+  fi
+done
+
+# Apply the ".patch" files
+find . -maxdepth 1 -regextype posix-egrep -regex '.*\.patch' -exec git apply -- {} \;
 
 # Setup nodejs 18
 curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash - &&\
