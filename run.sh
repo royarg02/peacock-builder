@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/sh -x
 
 # Determine which release needs to be built from the invoked script
 echo "$0" | grep -q "run.sh" || lite_flag="Y"
