@@ -37,7 +37,7 @@ index 251de50..158a060 100755
  cp webui/dist/THIRDPARTYNOTICES.txt "$OUT_DIR"/webui/dist/THIRDPARTYNOTICES.txt
 +
 +# Legacy Escalations Plugin
-+wget -P "$OUT_DIR" 'https://cdn.discordapp.com/attachments/839269742850211890/916394545242062868/LegacyEscalationsPlugin.js'
++wget -P "$OUT_DIR/plugins" 'https://cdn.discordapp.com/attachments/839269742850211890/916394545242062868/LegacyEscalationsPlugin.js'
 +
  ls "$OUT_DIR"
 -zip -9 -r "$OUT_DIR".zip "$OUT_DIR"
