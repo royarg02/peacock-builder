@@ -31,7 +31,7 @@ index 251de50..158a060 100755
      cp -r nodedist "$OUT_DIR"
  fi
  cp LICENSE "$OUT_DIR"
-@@ -51,5 +59,13 @@ mkdir "$OUT_DIR"/webui/dist
+@@ -52,5 +60,13 @@ mkdir "$OUT_DIR"/webui/dist
  cp webui/dist/*.html "$OUT_DIR"/webui/dist
  cp -r webui/dist/assets "$OUT_DIR"/webui/dist/assets
  cp webui/dist/THIRDPARTYNOTICES.txt "$OUT_DIR"/webui/dist/THIRDPARTYNOTICES.txt
