@@ -29,8 +29,8 @@ index 251de50..158a060 100755
 +    wget -P nodedist "https://nodejs.org/dist/$(cat .nvmrc)/win-x64/node.exe"
 +    wget -P nodedist "https://github.com/nodejs/node/raw/$(cat .nvmrc)/LICENSE"
      cp -r nodedist "$OUT_DIR"
- fi
- cp LICENSE "$OUT_DIR"
+     cp "packaging/Start Server.cmd" "$OUT_DIR"
+     cp "packaging/Tools.cmd" "$OUT_DIR"
 @@ -52,5 +60,13 @@ mkdir "$OUT_DIR"/webui/dist
  cp webui/dist/*.html "$OUT_DIR"/webui/dist
  cp -r webui/dist/assets "$OUT_DIR"/webui/dist/assets
