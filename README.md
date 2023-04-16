@@ -45,8 +45,8 @@ Below patches provide this build of Peacock its own flavor:
 [LocalGhost][2] patcher and [Legacy Escalations Plugin][3], among other
 improvements.
 
-[^1]: The legacy escalations are now bundled in core Peacock as of [this
-    commit][10].
+[^1]: The legacy escalations are now available in upstream as of [this
+commit][10].
 
 [1]: https://thepeacockproject.org
 [2]: https://gitlab.com/grappigegovert/localghost
