@@ -7,7 +7,7 @@ index 758758c..3ebe367 100755
  VERSION=$(jq -r '.version' package.json)
  
 -if [ "$1" == "" ]; then
-+if [ -z "$1" ]; then
++if [ "$1" = "N" ]; then
      echo "Assembling $VERSION with default settings"
      IS_LITE=false
      OUT_DIR=Peacock-v"$VERSION"
@@ -35,7 +35,7 @@ index 758758c..3ebe367 100755
  cp webui/dist/*.html "$OUT_DIR"/webui/dist
  cp -r webui/dist/assets "$OUT_DIR"/webui/dist/assets
  cp webui/dist/THIRDPARTYNOTICES.txt "$OUT_DIR"/webui/dist/THIRDPARTYNOTICES.txt
-+if [ -n "$2" ]; then
++if [ "$2" = "Y" ]; then
 +    echo "Bundling legacy escalations plugin"
 +    wget -P "$OUT_DIR/plugins" 'https://cdn.discordapp.com/attachments/839269742850211890/916394545242062868/LegacyEscalationsPlugin.js'
 +fi

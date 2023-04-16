@@ -7,7 +7,7 @@ PEACOCK="$GITHUB_WORKSPACE/Peacock"
 LEGACY_ESC="7f74ac7380f269d8c7e87bff6110d3bb9c949462"
 
 # Determine which release needs to be built from the invoked script
-echo "$0" | grep -q "run.sh" || lite_flag="Y"
+echo "$0" | grep -q "run.sh" && lite_flag="N" || lite_flag="Y"
 
 # Update apt repositories
 sudo apt update
@@ -28,9 +28,7 @@ cd "$PEACOCK" || exit 1
 git checkout "$1"
 
 # Check if Legacy escalations plugin need to be bundled
-if git merge-base --is-ancestor HEAD "$LEGACY_ESC"; then
-  legacy_esc_flag="Y"
-fi
+git merge-base --is-ancestor HEAD "$LEGACY_ESC" && legacy_esc_flag="Y" || legacy_esc_flag="N"
 
 # Reverse apply the ".revpatch" files before checking if they are an ancestor of
 # the HEAD
