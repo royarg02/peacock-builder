@@ -1,5 +1,5 @@
 diff --git a/components/index.ts b/components/index.ts
-index 00c3d71..b62e2b0 100644
+index 4771abd..b3c5f98 100644
 --- a/components/index.ts
 +++ b/components/index.ts
 @@ -66,6 +66,7 @@ import {
@@ -10,19 +10,16 @@ index 00c3d71..b62e2b0 100644
      STEAM_NAMESPACE_SCPC,
  } from "./platformEntitlements"
  import { legacyProfileRouter } from "./2016/legacyProfileRouter"
-@@ -195,7 +195,10 @@ app.get(
+@@ -194,7 +195,7 @@ app.get(
                  "pc-prod_6"
          }
  
 -        if (req.query.issuer === STEAM_NAMESPACE_2021) {
-+        if (
-+            req.query.issuer === STEAM_NAMESPACE_2021 ||
-+            req.query.issuer === STEAM_NAMESPACE_2021_DEMO
-+        ) {
++        if (req.query.issuer === STEAM_NAMESPACE_2021 || req.query.issuer ===  STEAM_NAMESPACE_2021_DEMO) {
              config.Versions[0].SERVER_VER.GlobalAuthentication.RequestedAudience =
                  "steam-prod_8"
          }
-@@ -354,6 +354,7 @@ app.use(
+@@ -350,6 +351,7 @@ app.use(
                      break
                  case "fghi4567xQOCheZIin0pazB47qGUvZw4":
                  case STEAM_NAMESPACE_2021:
@@ -31,7 +28,7 @@ index 00c3d71..b62e2b0 100644
                      break
                  default:
 diff --git a/components/oauthToken.ts b/components/oauthToken.ts
-index 1fe9b52..93f0f5d 100644
+index b1dd1a2..cebc342 100644
 --- a/components/oauthToken.ts
 +++ b/components/oauthToken.ts
 @@ -25,6 +25,7 @@ import { log, LogLevel } from "./loggingInterop"
@@ -42,7 +39,7 @@ index 1fe9b52..93f0f5d 100644
  } from "./platformEntitlements"
  import {
      getExternalUserData,
-@@ -143,7 +143,8 @@ export async function handleOauthToken(
+@@ -142,7 +143,8 @@ export async function handleOauthToken(
  
      const isHitman3 =
          external_appid === "fghi4567xQOCheZIin0pazB47qGUvZw4" ||
@@ -53,7 +50,7 @@ index 1fe9b52..93f0f5d 100644
      const gameVersion: GameVersion = isFrankenstein
          ? "scpc"
 diff --git a/components/platformEntitlements.ts b/components/platformEntitlements.ts
-index 54fe15e..ae636c1 100644
+index 2f544ed..2f73b47 100644
 --- a/components/platformEntitlements.ts
 +++ b/components/platformEntitlements.ts
 @@ -129,6 +129,7 @@ export const STEAM_NAMESPACE_SCPC = "783781"

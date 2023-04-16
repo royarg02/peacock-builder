@@ -6,15 +6,15 @@ Build script for a custom build of [The Peacock Project][1].
 
 This build differs from the official builds in the following ways:
 
-1. Supports HITMAN III Steam demo.
+1. Supports HITMAN World of Assassination Steam demo.
 2. Bundles the [LocalGhost][2] patcher as an alternative to Peacock patcher.
-3. Bundles the [Legacy Escalations Plugin][3] to be used out of the box.
+3. Bundles the [Legacy Escalations Plugin][3] to be used out of the box if
+   required[^1].
 
 ## Installation
 
 This repository includes a workflow for [GitHub Actions][4] which needs to be
-run manually once set up. One can provide the following options before
-triggering the workflow:
+run manually once set up. The action requires the following parameters:
 
 * The commit/tag to build Peacock at: Any tag or commit in
 [thepeacockproject/Peacock][5].
@@ -39,11 +39,14 @@ file name.
 
 Below patches provide this build of Peacock its own flavor:
 
-* `steam-demo.patch`: Enables HITMAN III Steam demo support.
+* `steam-demo.patch`: Enables HITMAN World of Assassination Steam demo support.
   * This still requires storefront authentication for access to content.
 * `packaging.patch`: Enables the packaging process to include the
 [LocalGhost][2] patcher and [Legacy Escalations Plugin][3], among other
 improvements.
+
+[^1]: The legacy escalations are now bundled in core Peacock as of [this
+    commit][10].
 
 [1]: https://thepeacockproject.org
 [2]: https://gitlab.com/grappigegovert/localghost
@@ -54,3 +57,4 @@ improvements.
 [7]: https://thepeacockproject.org/wiki/intel/installation
 [8]: https://github.com/thepeacockproject/Peacock/commits
 [9]: https://webapps.stackexchange.com/a/159720
+[10]: https://github.com/thepeacockproject/Peacock/commit/4575924e80150a1b9d5593f7f01f2a29e5853721

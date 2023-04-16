@@ -1,5 +1,5 @@
 diff --git a/packaging/ciAssemble.sh b/packaging/ciAssemble.sh
-index 251de50..158a060 100755
+index 758758c..3ebe367 100755
 --- a/packaging/ciAssemble.sh
 +++ b/packaging/ciAssemble.sh
 @@ -18,7 +18,7 @@
@@ -16,7 +16,7 @@ index 251de50..158a060 100755
  fi
  
 +wget -O LocalGhost-Patcher.zip "https://gitlab.com/grappigegovert/localghost/-/jobs/artifacts/master/download?job=build_patcher"
-+wget -O LocalGhost-LICENSE "https://gitlab.com/grappigegovert/localghost/-/raw/master/LICENSE"
++wget -O LocalGhost.LICENSE "https://gitlab.com/grappigegovert/localghost/-/raw/master/LICENSE"
 +unzip LocalGhost-Patcher.zip
 +
  mkdir "$OUT_DIR"
@@ -31,18 +31,16 @@ index 251de50..158a060 100755
      cp -r nodedist "$OUT_DIR"
      cp "packaging/Start Server.cmd" "$OUT_DIR"
      cp "packaging/Tools.cmd" "$OUT_DIR"
-@@ -52,5 +60,13 @@ mkdir "$OUT_DIR"/webui/dist
+@@ -52,5 +60,11 @@ mkdir "$OUT_DIR"/webui/dist
  cp webui/dist/*.html "$OUT_DIR"/webui/dist
  cp -r webui/dist/assets "$OUT_DIR"/webui/dist/assets
  cp webui/dist/THIRDPARTYNOTICES.txt "$OUT_DIR"/webui/dist/THIRDPARTYNOTICES.txt
-+
-+# Legacy Escalations Plugin
-+wget -P "$OUT_DIR/plugins" 'https://cdn.discordapp.com/attachments/839269742850211890/916394545242062868/LegacyEscalationsPlugin.js'
-+
++if [ -n "$2" ]; then
++    echo "Bundling legacy escalations plugin"
++    wget -P "$OUT_DIR/plugins" 'https://cdn.discordapp.com/attachments/839269742850211890/916394545242062868/LegacyEscalationsPlugin.js'
++fi
  ls "$OUT_DIR"
 -zip -9 -r "$OUT_DIR".zip "$OUT_DIR"
-+# Upload artifacts strips the root directory when zipping artifacts. Move
-+# OUT_DIR to another directory to avoid that.
 +mkdir out; mv "$OUT_DIR" --target-directory=out
 +echo "$OUT_DIR built!"
 +echo "VERSION=$OUT_DIR" >> $GITHUB_ENV
