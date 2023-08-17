@@ -1,0 +1,36 @@
+diff --git a/components/flags.ts b/components/flags.ts
+index 0fb6eb6..28da165 100644
+--- a/components/flags.ts
++++ b/components/flags.ts
+@@ -27,7 +27,7 @@ let flags: IIniObject = {}
+ const defaultFlags: Flags = {
+     gameplayUnlockAllShortcuts: {
+         desc: "[Gameplay] When set to true, all shortcuts will always be unlocked.",
+-        default: false,
++        default: true,
+     },
+     gameplayUnlockAllFreelancerMasteries: {
+         desc: "[Gameplay] When set to true, all Freelancer unlocks will always be available.",
+@@ -39,7 +39,7 @@ const defaultFlags: Flags = {
+     },
+     enableMasteryProgression: {
+         desc: "[Gameplay] When set to false, mastery progression will be disabled and all unlockables will be awarded at the beginning",
+-        default: true,
++        default: false,
+     },
+     elusivesAreShown: {
+         desc: "[Gameplay] Show elusive targets in instinct like normal targets would appear on normal missions. (for speedrunners who are submitting to speedrun.com, just as a reminder, this tool is for practice only!)",
+@@ -51,11 +51,11 @@ const defaultFlags: Flags = {
+     },
+     leaderboards: {
+         desc: "[Services] Allow your times to be submitted to the ingame leaderboards. If you do not want your times on the leaderboards, change this to false.",
+-        default: true,
++        default: false,
+     },
+     updateChecking: {
+         desc: "[Services] Allow Peacock to check for updates on startup.",
+-        default: true,
++        default: false,
+     },
+     loadoutSaving: {
+         desc: "[Services] Default loadout mode - either PROFILES (loadout profiles) or LEGACY for per-user saving",
