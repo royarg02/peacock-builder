@@ -10,13 +10,13 @@ on:
         description: 'Don''t bundle NodeJS'
         type: boolean
 
-run-name: Commit- ${{ inputs.commit }}, NodeJS- ${{ ! inputs.lite }}
+run-name: Commit/Tag- ${{ inputs.commit }}, NodeJS- ${{ ! inputs.lite }}
 jobs:
   build-peacock:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v3.3.0
+        uses: actions/checkout@c85c95e3d7251135ab7dc9ce3241c5835cc595a9
 
       - if: ${{ inputs.lite }}
         name: Build Peacock without bundling NodeJS
@@ -28,8 +28,9 @@ jobs:
 
       - name: Upload artifacts
         if: success()
-        uses: actions/upload-artifact@v3.1.2
+        uses: actions/upload-artifact@0b7f8abb1508181956e8e162db84b466c27e18ce
         with:
           name: '${{ env.VERSION }}'
           path: 'Peacock/out'
           if-no-files-found: error
+
