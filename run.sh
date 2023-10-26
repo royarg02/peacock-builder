@@ -13,7 +13,7 @@ echo "$0" | grep -q "run.sh" && lite_flag="N" || lite_flag="Y"
 sudo apt update
 
 # Setup dependencies
-sudo apt install -y git curl jq
+sudo apt install -y git curl jq ca-certificates gnupg
 
 # Fetch Peacock source code
 git clone "https://github.com/thepeacockproject/Peacock.git" "$PEACOCK"
@@ -41,9 +41,12 @@ done
 # Apply the ".patch" files
 find . -maxdepth 1 -regextype posix-egrep -regex '.*\.patch' -exec git apply -- {} \;
 
-# Setup nodejs 18
-curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash - &&\
-sudo apt-get install -y nodejs
+# Setup nodejs
+sudo mkdir -p /etc/apt/keyrings
+curl -fsSL https://deb.nodesource.com/gpgkey/nodesource-repo.gpg.key | sudo gpg --dearmor -o /etc/apt/keyrings/nodesource.gpg
+NODE_MAJOR=$(sed 's/v//; s/\..*//' < .nvmrc)
+echo "deb [signed-by=/etc/apt/keyrings/nodesource.gpg] https://deb.nodesource.com/node_$NODE_MAJOR.x nodistro main" | sudo tee /etc/apt/sources.list.d/nodesource.list
+sudo apt update && sudo apt install -y nodejs
 
 # Setup yarn
 sudo apt remove -y cmdtest
