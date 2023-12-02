@@ -37,7 +37,7 @@ index 758758c..3ebe367 100755
  cp webui/dist/THIRDPARTYNOTICES.txt "$OUT_DIR"/webui/dist/THIRDPARTYNOTICES.txt
 +if [ "$2" = "Y" ]; then
 +    echo "Bundling legacy escalations plugin"
-+    wget -P "$OUT_DIR/plugins" 'https://cdn.discordapp.com/attachments/839269742850211890/916394545242062868/LegacyEscalationsPlugin.js'
++    cp "$GITHUB_WORKSPACE/LegacyEscalationsPlugin.js" "$OUT_DIR/plugins"
 +fi
  ls "$OUT_DIR"
 -zip -9 -r "$OUT_DIR".zip "$OUT_DIR"

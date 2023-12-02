@@ -18,8 +18,8 @@ sudo apt install -y git curl jq ca-certificates gnupg
 # Fetch Peacock source code
 git clone "https://github.com/thepeacockproject/Peacock.git" "$PEACOCK"
 
-# Copy any patches in this directory to Peacock folder
-find . -maxdepth 1 -regextype posix-egrep -regex '.*\.(rev)?patch' -exec cp {} "$PEACOCK" \;
+# Copy any patches from the patches directory to Peacock folder
+find patches -regextype posix-egrep -regex '.*\.(rev)?patch' -exec cp {} "$PEACOCK" \;
 
 # Go to the Peacock directory
 cd "$PEACOCK" || exit 1
