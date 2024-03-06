@@ -9,10 +9,10 @@ index 758758c..3ebe367 100755
 -if [ "$1" == "" ]; then
 +if [ "$1" = "N" ]; then
      echo "Assembling $VERSION with default settings"
-     IS_LITE=false
+     IS_LINUX=false
      OUT_DIR=Peacock-v"$VERSION"
 @@ -28,11 +28,19 @@ else
-     OUT_DIR=Peacock-v"$VERSION"-lite
+     OUT_DIR=Peacock-v"$VERSION"-linux
  fi
  
 +wget -O LocalGhost-Patcher.zip "https://gitlab.com/grappigegovert/localghost/-/jobs/artifacts/master/download?job=build_patcher"
@@ -25,7 +25,7 @@ index 758758c..3ebe367 100755
 +cp LocalGhostPatcher.exe "$OUT_DIR"
 +cp LocalGhost.LICENSE "$OUT_DIR"
  cp chunk*.js "$OUT_DIR"
- if [ "$IS_LITE" != true ]; then
+ if [ "$IS_LINUX" != true ]; then
 +    wget -P nodedist "https://nodejs.org/dist/$(cat .nvmrc)/win-x64/node.exe"
 +    wget -P nodedist "https://github.com/nodejs/node/raw/$(cat .nvmrc)/LICENSE"
      cp -r nodedist "$OUT_DIR"
