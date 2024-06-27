@@ -20,7 +20,7 @@ index 0fb6eb6..28da165 100644
      },
      elusivesAreShown: {
          desc: "[Gameplay] Show elusive targets in instinct like normal targets would appear on normal missions. (for speedrunners who are submitting to speedrun.com, just as a reminder, this tool is for practice only!)",
-@@ -51,11 +51,11 @@ const defaultFlags: Flags = {
+@@ -55,11 +55,11 @@ const defaultFlags: Flags = {
      },
      leaderboards: {
          desc: "[Services] Allow your times to be submitted to the ingame leaderboards. If you do not want your times on the leaderboards, change this to false.",
