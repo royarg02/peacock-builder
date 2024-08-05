@@ -11,9 +11,9 @@ index 758758c..3ebe367 100755
      echo "Assembling $VERSION with default settings"
      IS_LINUX=false
      OUT_DIR=Peacock-v"$VERSION"
-@@ -28,11 +28,19 @@ else
-     OUT_DIR=Peacock-v"$VERSION"-linux
- fi
+@@ -31,11 +31,19 @@
+ # generate options.ini
+ node chunk0.js noop
  
 +wget -O LocalGhost-Patcher.zip "https://gitlab.com/grappigegovert/localghost/-/jobs/artifacts/master/download?job=build_patcher"
 +wget -O LocalGhost.LICENSE "https://gitlab.com/grappigegovert/localghost/-/raw/master/LICENSE"
@@ -31,10 +31,10 @@ index 758758c..3ebe367 100755
      cp -r nodedist "$OUT_DIR"
      cp "packaging/Start Server.cmd" "$OUT_DIR"
      cp "packaging/Tools.cmd" "$OUT_DIR"
-@@ -52,5 +60,11 @@ mkdir "$OUT_DIR"/webui/dist
- cp webui/dist/*.html "$OUT_DIR"/webui/dist
+@@ -56,5 +64,11 @@ cp webui/dist/*.html "$OUT_DIR"/webui/dist
  cp -r webui/dist/assets "$OUT_DIR"/webui/dist/assets
  cp webui/dist/THIRDPARTYNOTICES.txt "$OUT_DIR"/webui/dist/THIRDPARTYNOTICES.txt
+ cp options.ini "$OUT_DIR"
 +if [ "$2" = "Y" ]; then
 +    echo "Bundling legacy escalations plugin"
 +    cp "$GITHUB_WORKSPACE/LegacyEscalationsPlugin.js" "$OUT_DIR/plugins"
