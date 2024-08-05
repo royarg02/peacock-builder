@@ -1,0 +1,37 @@
+diff --git a/static/EiderDashboard.json b/static/EiderDashboard.json
+index fb2ffc3..7e5424f 100644
+--- a/static/EiderDashboard.json
++++ b/static/EiderDashboard.json
+@@ -340,21 +340,7 @@
+                 "actions": {
+                     "accept": {
+                         "$if $ispackageowned locationGolden": {
+-                            "$then": [
+-                                {
+-                                    "set-menu-context": {
+-                                        "value": {
+-                                            "onpageopened": {
+-                                                "set-selected": {
+-                                                    "target": "PLANNING_BUTTON_PLAY"
+-                                                },
+-                                                "trigger-input": {
+-                                                    "action": "accept"
+-                                                }
+-                                            }
+-                                        }
+-                                    }
+-                                },
++                            "$then":
+                                 {
+                                     "link": {
+                                         "page": "planning",
+@@ -367,8 +353,7 @@
+                                             "contractid": "f8ec92c2-4fa2-471e-ae08-545480c746ee"
+                                         }
+                                     }
+-                                }
+-                            ],
++                                },
+                             "$else": {
+                                 "link": {
+                                     "page": "gamemode_evergreen",
