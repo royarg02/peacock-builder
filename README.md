@@ -48,6 +48,8 @@ file name.
   improvements.
 * `default-flags.patch`: Changes some default configuration flags out of the
   box.
+* `dashboard-go-to-evergreen-planning.patch`: Makes the Freelancer tile in the
+  main menu take to the planning screen instead of [taking in-game][11].
 
 [^1]: The legacy escalations are available in upstream as of [this commit][10].
 
@@ -61,3 +63,4 @@ file name.
 [8]: https://github.com/thepeacockproject/Peacock/commits
 [9]: https://webapps.stackexchange.com/a/159720
 [10]: https://github.com/thepeacockproject/Peacock/commit/4575924e80150a1b9d5593f7f01f2a29e5853721
+[11]: https://en.wikipedia.org/wiki/Principle_of_least_astonishment
