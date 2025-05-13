@@ -10,7 +10,7 @@ index 4771abd..b3c5f98 100644
      STEAM_NAMESPACE_SCPC,
  } from "./platformEntitlements"
  import { legacyProfileRouter } from "./2016/legacyProfileRouter"
-@@ -205,7 +206,7 @@ app.get(
+@@ -209,7 +210,7 @@ app.get(
                  "pc-prod_6"
          }
  
@@ -19,7 +19,7 @@ index 4771abd..b3c5f98 100644
              config.Versions[0].SERVER_VER.GlobalAuthentication.RequestedAudience =
                  "steam-prod_8"
          }
-@@ -331,6 +332,7 @@ app.use(
+@@ -335,6 +336,7 @@ app.use(
                      break
                  case "fghi4567xQOCheZIin0pazB47qGUvZw4":
                  case STEAM_NAMESPACE_2021:
