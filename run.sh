@@ -61,4 +61,3 @@ yarn optimize
 
 # Create package
 ./packaging/ciAssemble.sh "$lite_flag"
-

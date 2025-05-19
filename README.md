@@ -4,8 +4,7 @@ Build script for a custom build of [The Peacock Project][1].
 
 ## What's different?
 
-This build supports HITMAN World of Assassination Steam demo, requires
-authentication from Steam for access to content.
+Refer to the [patches list][2] to view the differences.
 
 ## Installation
 
@@ -22,8 +21,9 @@ run and proceed for installation as listed in the [official website][7].
 
 ## Maintenance
 
-Maintenance of this custom build involves managing patches rather than entire
-codebase. Below are some naming conventions for these patches:
+Maintenance of this custom build involves managing patches stored in the
+`patches` directory rather than entire codebase. Below are some naming
+conventions for these patches:
 
 * Patches intended to be applied _as is_ are named `*.patch`.
 * Patches intended to be applied _reversed_ are named `*.revpatch`.
@@ -34,10 +34,12 @@ codebase. Below are some naming conventions for these patches:
 * Any other patches are ignored. For better clarity, append "`.ignore`" to the
 file name.
 
-### The following patches are included in this repository:
+### Patches included
+
+By default, the following patches are applied during build:
 
 * `steam-demo.patch`: Enables support for HITMAN World of Assassination Steam
-  demo.
+  demo(Steam authentication required for access to content).
 * `packaging.patch`: Modifies the packaging process for proper artifact upload
   in GitHub actions.
 * `default-flags.patch`: Changes some default configuration flags out of the
@@ -46,6 +48,7 @@ file name.
   main menu take to the planning screen instead of [taking in-game][11].
 
 [1]: https://thepeacockproject.org
+[2]: https://github.com/royarg02/peacock-builder#patches-included
 [4]: https://docs.github.com/en/actions
 [5]: https://github.com/thepeacockproject/Peacock
 [6]: https://nodejs.org
