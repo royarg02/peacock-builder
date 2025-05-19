@@ -3,9 +3,6 @@
 # Location of Peacock source code
 PEACOCK="$GITHUB_WORKSPACE/Peacock"
 
-# The last commit of Peacock requiring the Legacy Escalations plugin
-LEGACY_ESC="7f74ac7380f269d8c7e87bff6110d3bb9c949462"
-
 # Determine which release needs to be built from the invoked script
 echo "$0" | grep -q "run.sh" && lite_flag="N" || lite_flag="Y"
 
@@ -25,10 +22,11 @@ find patches -regextype posix-egrep -regex '.*\.(rev)?patch' -exec cp {} "$PEACO
 cd "$PEACOCK" || exit 1
 
 # Switch to provided commit/tag. Defaults to HEAD
-git checkout "$1"
+git switch -d "$1"
 
-# Check if Legacy escalations plugin need to be bundled
-git merge-base --is-ancestor HEAD "$LEGACY_ESC" && legacy_esc_flag="Y" || legacy_esc_flag="N"
+# Store version for later use
+VERSION="$(git describe --long --tags | sed 's/\([^-]*-\)g/r\1/;s/-/./g')"
+echo "VERSION="$VERSION"" >> $GITHUB_ENV
 
 # Reverse apply the ".revpatch" files before checking if they are an ancestor of
 # the HEAD
@@ -62,5 +60,4 @@ yarn build
 yarn optimize
 
 # Create package
-./packaging/ciAssemble.sh "$lite_flag" "$legacy_esc_flag"
-
+./packaging/ciAssemble.sh "$lite_flag"
