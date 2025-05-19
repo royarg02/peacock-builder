@@ -30,7 +30,7 @@ jobs:
         if: success()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         with:
-          name: '${{ env.VERSION }}'
+          name: 'Peacock-${{ env.VERSION }}'
           path: 'Peacock/out'
           if-no-files-found: error
 
