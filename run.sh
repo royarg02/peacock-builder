@@ -4,7 +4,7 @@
 PEACOCK="$GITHUB_WORKSPACE/Peacock"
 
 # Determine which release needs to be built from the invoked script
-echo "$0" | grep -q "run.sh" && lite_flag="N" || lite_flag="Y"
+echo "$0" | grep -q "run.sh" || build_linux="Y"
 
 # Update apt repositories
 sudo apt update
@@ -23,10 +23,6 @@ cd "$PEACOCK" || exit 1
 
 # Switch to provided commit/tag. Defaults to HEAD
 git switch -d "$1"
-
-# Store version for later use
-VERSION="$(git describe --long --tags | sed 's/\([^-]*-\)g/r\1/;s/-/./g')"
-echo "VERSION="$VERSION"" >> $GITHUB_ENV
 
 # Reverse apply the ".revpatch" files before checking if they are an ancestor of
 # the HEAD
@@ -60,4 +56,4 @@ yarn build
 yarn optimize
 
 # Create package
-./packaging/ciAssemble.sh "$lite_flag"
+./packaging/ciAssemble.sh "$build_linux"

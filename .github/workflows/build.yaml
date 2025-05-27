@@ -3,14 +3,18 @@ on:
   workflow_dispatch:
     inputs:
       commit:
-        description: 'Build at this commit/tag. Defaults to HEAD'
+        description: 'Build from this commit/tag'
         type: string
         default: 'HEAD'
-      lite:
-        description: 'Don''t bundle NodeJS'
-        type: boolean
+      platform:
+        description: 'The platform to build for'
+        type: choice
+        options:
+          - any
+          - linux
+        default: 'any'
 
-run-name: Commit/Tag- ${{ inputs.commit }}, NodeJS- ${{ ! inputs.lite }}
+run-name: Commit/Tag- ${{ inputs.commit }}, ${{ github.event.inputs.platform }}
 jobs:
   build-peacock:
     runs-on: ubuntu-latest
@@ -18,19 +22,19 @@ jobs:
       - name: Checkout
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
 
-      - if: ${{ inputs.lite }}
-        name: Build Peacock without bundling NodeJS
+      - if: ${{ github.event.inputs.platform == 'linux' }}
+        name: Build Peacock for linux
         run: ./run-lite.sh ${{ inputs.commit }}
 
-      - if: ${{ ! inputs.lite }}
-        name: Build Peacock bundling NodeJS
+      - if: ${{ github.event.inputs.platform == 'any' }}
+        name: Build Peacock
         run: ./run.sh ${{ inputs.commit }}
 
       - name: Upload artifacts
         if: success()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         with:
-          name: 'Peacock-${{ env.VERSION }}'
+          name: '${{ env.ARTIFACT_NAME }}'
           path: 'Peacock/out'
           if-no-files-found: error
 

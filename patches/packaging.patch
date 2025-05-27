@@ -2,21 +2,16 @@ diff --git a/packaging/ciAssemble.sh b/packaging/ciAssemble.sh
 index 758758c..3ebe367 100755
 --- a/packaging/ciAssemble.sh
 +++ b/packaging/ciAssemble.sh
-@@ -18,7 +18,7 @@
- 
- VERSION=$(jq -r '.version' package.json)
- 
--if [ "$1" == "" ]; then
-+if [ "$1" = "N" ]; then
+@@ -16,7 +16,7 @@
+ #     along with this program.  If not, see <https://www.gnu.org/licenses/>.
+ #
+
+-VERSION=$(jq -r '.version' package.json)
++VERSION="$(jq -r '.version' package.json)-$(git rev-parse --short HEAD)"
+
+ if [ "$1" == "" ]; then
      echo "Assembling $VERSION with default settings"
-     IS_LINUX=false
-     OUT_DIR=Peacock-v"$VERSION"
-@@ -31,11 +31,13 @@
- # generate options.ini
- node chunk0.js noop
- 
- mkdir "$OUT_DIR"
- cp packaging/HOW_TO_USE.html "$OUT_DIR"
+@@ -36,6 +36,8 @@ cp packaging/HOW_TO_USE.html "$OUT_DIR"
  cp PeacockPatcher.exe "$OUT_DIR"
  cp chunk*.js "$OUT_DIR"
  if [ "$IS_LINUX" != true ]; then
@@ -25,11 +20,11 @@ index 758758c..3ebe367 100755
      cp -r nodedist "$OUT_DIR"
      cp "packaging/Start Server.cmd" "$OUT_DIR"
      cp "packaging/Tools.cmd" "$OUT_DIR"
-@@ -56,5 +58,6 @@ cp webui/dist/*.html "$OUT_DIR"/webui/dist
- cp -r webui/dist/assets "$OUT_DIR"/webui/dist/assets
+@@ -57,4 +59,6 @@ cp -r webui/dist/assets "$OUT_DIR"/webui/dist/assets
  cp webui/dist/THIRDPARTYNOTICES.txt "$OUT_DIR"/webui/dist/THIRDPARTYNOTICES.txt
  cp options.ini "$OUT_DIR"
  ls "$OUT_DIR"
 -zip -9 -r "$OUT_DIR".zip "$OUT_DIR"
 +mkdir out; mv "$OUT_DIR" --target-directory=out
 +echo "$OUT_DIR built!"
++echo "ARTIFACT_NAME=$OUT_DIR" >> "$GITHUB_ENV"
