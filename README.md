@@ -11,10 +11,10 @@ Refer to the [patches list][2] to view the differences.
 This repository includes a workflow for [GitHub Actions][4] which needs to be
 run manually once set up. The action requires the following parameters:
 
-* The commit/tag to build Peacock at: Any tag or commit in
+* The commit/tag to build Peacock from: Any tag or commit in
 [thepeacockproject/Peacock][5].
-* Don't bundle NodeJS: Enable to not include [NodeJS][6] in the build(aka the
-  linux version).
+* The platform to build Peacock for: Any, or linux(doesn't include [NodeJS][6])
+version.
 
 Once the build finishes, get the artifact from the **Artifacts** section of the
 run and proceed for installation as listed in the [official website][7].
