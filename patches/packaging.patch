@@ -2,15 +2,18 @@ diff --git a/packaging/ciAssemble.sh b/packaging/ciAssemble.sh
 index 758758c..3ebe367 100755
 --- a/packaging/ciAssemble.sh
 +++ b/packaging/ciAssemble.sh
-@@ -16,7 +16,7 @@
+@@ -16,9 +16,9 @@
  #     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  #
 
 -VERSION=$(jq -r '.version' package.json)
 +VERSION="$(jq -r '.version' package.json)-$(git rev-parse --short HEAD)"
 
- if [ "$1" == "" ]; then
+-if [ "$1" == "" ]; then
++if [ -z "$1" ]; then
      echo "Assembling $VERSION with default settings"
+     IS_LINUX=false
+     OUT_DIR=Peacock-v"$VERSION"
 @@ -36,6 +36,8 @@ cp packaging/HOW_TO_USE.html "$OUT_DIR"
  cp PeacockPatcher.exe "$OUT_DIR"
  cp chunk*.js "$OUT_DIR"
