@@ -46,6 +46,10 @@ By default, the following patches are applied during build:
   box.
 * `dashboard-go-to-evergreen-planning.patch`: Makes the Freelancer tile in the
   main menu take to the planning screen instead of [taking in-game][11].
+* `disable-profile-progression.patch`: Disables awarding XP points completely if
+  `enableMasteryProgression` is set `false`.
+* `unlock-order-for-planning-sort.patch`: Correctly sorts entrances and
+  stashpoints which don't unlock through mastery.
 
 [1]: https://thepeacockproject.org
 [2]: https://github.com/royarg02/peacock-builder#patches-included
