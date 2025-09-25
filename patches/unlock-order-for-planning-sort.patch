@@ -1,0 +1,22 @@
+diff --git a/components/menuData.ts b/components/menuData.ts
+index bd33b144..b07ac7ac 100644
+--- a/components/menuData.ts
++++ b/components/menuData.ts
+@@ -23,7 +23,7 @@ import {
+     getMaxProfileLevel,
+     isSuit,
+     parsePageNumber,
+-    unlockLevelComparer,
++    unlockOrderComparer,
+     uuidRegex,
+ } from "./utils"
+ import { contractSessions, enqueueEvent, getSession } from "./eventHandler"
+@@ -657,7 +657,7 @@ function generateSelectPage(
+                         ?.Level.toString() ?? "1"
+                 return unlockable
+             })
+-            .sort(unlockLevelComparer),
++            .sort(unlockOrderComparer),
+         UserCentric: generateUserCentric(contractData, userId, gameVersion)!,
+     }
+ 
