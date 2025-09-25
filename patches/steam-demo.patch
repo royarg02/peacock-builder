@@ -24,7 +24,7 @@ index 4771abd..b3c5f98 100644
                  case "fghi4567xQOCheZIin0pazB47qGUvZw4":
                  case STEAM_NAMESPACE_2021:
 +                case STEAM_NAMESPACE_2021_DEMO:
-                     req.serverVersion = "8-20"
+                     req.serverVersion = "8-21"
                      break
                  default:
 diff --git a/components/oauthToken.ts b/components/oauthToken.ts
@@ -53,7 +53,7 @@ diff --git a/components/platformEntitlements.ts b/components/platformEntitlement
 index 2f544ed..2f73b47 100644
 --- a/components/platformEntitlements.ts
 +++ b/components/platformEntitlements.ts
-@@ -141,6 +141,7 @@ export const STEAM_NAMESPACE_SCPC = "783781"
+@@ -143,6 +143,7 @@ export const STEAM_NAMESPACE_SCPC = "783781"
  export const STEAM_NAMESPACE_2018 = "863550"
  export const EPIC_NAMESPACE_2021 = "ed55aa5edc5941de92fd7f64de415793"
  export const STEAM_NAMESPACE_2021 = "1659040"
