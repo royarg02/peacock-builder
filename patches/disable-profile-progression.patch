@@ -1,0 +1,29 @@
+diff --git a/components/candle/progressionService.ts b/components/candle/progressionService.ts
+index e5d5952d..83e7eaf2 100644
+--- a/components/candle/progressionService.ts
++++ b/components/candle/progressionService.ts
+@@ -40,6 +40,7 @@ import {
+ import { writeUserData } from "../databaseHandler"
+ import { MasteryPackageDrop } from "../types/mastery"
+ import assert from "assert"
++import { getFlag } from "../flags"
+ 
+ export class ProgressionService {
+     // NOTE: Official will always grant XP to both Location Mastery and the Player Profile
+@@ -52,6 +53,7 @@ export class ProgressionService {
+         location: string,
+         subPackage?: string,
+     ): void {
++        if (getFlag("enableMasteryProgression")) {
+         // Total XP for profile XP is the total sum of the action and mastery XP
+         const xp = actionXp + masteryXp
+ 
+@@ -81,7 +83,7 @@ export class ProgressionService {
+                 ) as Unlockable[],
+             )
+         }
+-
++        }
+         // Saves profile data
+         writeUserData(userProfile.Id, contractSession.gameVersion)
+     }
