@@ -1,5 +1,5 @@
 diff --git a/components/menuData.ts b/components/menuData.ts
-index bd33b144..b07ac7ac 100644
+index bd33b144..1e5bccae 100644
 --- a/components/menuData.ts
 +++ b/components/menuData.ts
 @@ -23,7 +23,7 @@ import {
@@ -11,8 +11,12 @@ index bd33b144..b07ac7ac 100644
      uuidRegex,
  } from "./utils"
  import { contractSessions, enqueueEvent, getSession } from "./eventHandler"
-@@ -657,7 +657,7 @@ function generateSelectPage(
-                         ?.Level.toString() ?? "1"
+@@ -654,10 +654,10 @@ function generateSelectPage(
+                 unlockable.Properties.UnlockLevel =
+                     controller.masteryService
+                         .getMasteryForUnlockable(unlockable, gameVersion)
+-                        ?.Level.toString() ?? "1"
++                        ?.Level.toString() ?? ""
                  return unlockable
              })
 -            .sort(unlockLevelComparer),
