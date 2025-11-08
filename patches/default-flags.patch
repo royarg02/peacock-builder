@@ -18,9 +18,9 @@ index 0fb6eb6..28da165 100644
 -                default: true,
 +                default: false,
              },
-             elusivesAreShown: {
+             enableIsolatedUnlockables: {
                  category: "Gameplay",
-@@ -96,13 +96,13 @@ export const defaultFlags: Flags = {
+@@ -102,13 +102,13 @@ export const defaultFlags: Flags = {
                  category: "Services",
                  title: "leaderboards",
                  desc: "Allow your times to be submitted to the ingame leaderboards. If you do not want your times on the leaderboards, change this to false.",
