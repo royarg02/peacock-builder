@@ -48,6 +48,8 @@ By default, the following patches are applied during build:
   main menu take to the planning screen instead of [taking in-game][11].
 * `unlock-order-for-planning-sort.patch`: Correctly sorts entrances and
   stashpoints which don't unlock through mastery.
+* `disable-roadmap-modal.patch`: Disables roadmap popup on first boot, also
+  doesn't popup when switching back to official servers.
 
 [1]: https://thepeacockproject.org
 [2]: https://github.com/royarg02/peacock-builder#patches-included
