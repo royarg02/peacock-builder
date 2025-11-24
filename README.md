@@ -52,6 +52,7 @@ By default, the following patches are applied during build:
   stashpoints which don't unlock through mastery.
 * `disable-roadmap-modal.patch`: Disables roadmap popup on first boot, also
   doesn't popup when switching back to official servers.
+* `remove-store-tab.patch`: Removes the store tab from the main menu.
 
 [1]: https://thepeacockproject.org
 [2]: https://github.com/royarg02/peacock-builder#patches-included
