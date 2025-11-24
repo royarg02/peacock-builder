@@ -1,0 +1,32 @@
+diff --git a/components/menus/campaigns.ts b/components/menus/campaigns.ts
+index 837da9be..348df15f 100644
+--- a/components/menus/campaigns.ts
++++ b/components/menus/campaigns.ts
+@@ -402,13 +402,6 @@ export function makeCampaigns(
+         }
+         case "h3": {
+             c.push(prologueCampaign!, s1Campaign!, s2Campaign!, s3Campaign!, {
+-                Name: "UI_MENU_PAGE_SIDE_MISSIONS_TITLE",
+-                Image: "",
+-                Type: "mission",
+-                BackgroundImage: null,
+-                Subgroups: [
+-                    sdsCampaign,
+-                    {
+                         Name: "UI_MENU_PAGE_SPECIAL_ASSIGNMENTS_TITLE",
+                         Image: "",
+                         Type: "campaign",
+@@ -495,13 +488,6 @@ export function makeCampaigns(
+                                 gameVersion,
+                             ),
+                         ],
+-                    },
+-                ].filter(Boolean) as Campaign[],
+-                StoryData: [],
+-                Properties: {
+-                    BackgroundImage:
+-                        "images/story/background_side_missions.jpg",
+-                },
+             })
+             break
+         }
