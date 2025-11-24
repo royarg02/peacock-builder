@@ -1,0 +1,12 @@
+diff --git a/components/menus/hub.ts b/components/menus/hub.ts
+index 8a59e1ef..c310cb8e 100644
+--- a/components/menus/hub.ts
++++ b/components/menus/hub.ts
+@@ -251,7 +251,6 @@ export function getHubData(gameVersion: GameVersion, userId: string) {
+         },
+         StoryData: makeCampaigns(gameVersion, userId),
+         FilterData: getVersionedConfig("FilterData", gameVersion, false),
+-        StoreData: getVersionedConfig("StoreData", gameVersion, false),
+         IOIAccountStatus: {
+             IsConfirmed: true,
+             LinkedEmail: "mail@example.com",
