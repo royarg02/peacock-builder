@@ -46,6 +46,8 @@ By default, the following patches are applied during build:
   box.
 * `dashboard-go-to-evergreen-planning.patch`: Makes the Freelancer tile in the
   main menu take to the planning screen instead of [taking in-game][11].
+* `disable-mission-rewards.patch`: Disables post-mission rewards screen when
+  `enableMasteryProgression` is set `false`.
 * `unlock-order-for-planning-sort.patch`: Correctly sorts entrances and
   stashpoints which don't unlock through mastery.
 * `disable-roadmap-modal.patch`: Disables roadmap popup on first boot, also
