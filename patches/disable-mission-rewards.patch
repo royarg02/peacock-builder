@@ -1,0 +1,13 @@
+diff --git a/components/scoreHandler.ts b/components/scoreHandler.ts
+index c1577345..f796d9e1 100644
+--- a/components/scoreHandler.ts
++++ b/components/scoreHandler.ts
+@@ -1227,7 +1227,7 @@ export async function getMissionEndData(
+                 XPGain: totalXpGain,
+             },
+             Challenges: calculateXpResult.completedChallenges,
+-            Drops: [...masteryDrops, ...challengeDrops],
++            Drops: getFlag("enableMasteryProgression") ? [...masteryDrops, ...challengeDrops] : [],
+             // TODO: Do these exist? Appears to be optional.
+             OpportunityRewards: [],
+             UnlockableProgression: unlockableProgression,

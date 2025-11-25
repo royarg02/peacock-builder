@@ -48,6 +48,8 @@ By default, the following patches are applied during build:
   main menu take to the planning screen instead of [taking in-game][11].
 * `disable-profile-progression.patch`: Disables awarding XP points completely if
   `enableMasteryProgression` is set `false`.
+* `disable-mission-rewards.patch`: Disables post-mission rewards screen when
+  `enableMasteryProgression` is set `false`.
 * `unlock-order-for-planning-sort.patch`: Correctly sorts entrances and
   stashpoints which don't unlock through mastery.
 * `disable-roadmap-modal.patch`: Disables roadmap popup on first boot, also
