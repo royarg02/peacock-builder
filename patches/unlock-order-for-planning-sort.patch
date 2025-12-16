@@ -11,7 +11,7 @@ index bd33b144..1e5bccae 100644
      uuidRegex,
  } from "./utils"
  import { contractSessions, enqueueEvent, getSession } from "./eventHandler"
-@@ -654,10 +654,10 @@ function generateSelectPage(
+@@ -657,10 +657,10 @@ function generateSelectPage(
                  unlockable.Properties.UnlockLevel =
                      controller.masteryService
                          .getMasteryForUnlockable(unlockable, gameVersion)
