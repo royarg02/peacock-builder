@@ -2,16 +2,7 @@ diff --git a/components/menuData.ts b/components/menuData.ts
 index bd33b144..1e5bccae 100644
 --- a/components/menuData.ts
 +++ b/components/menuData.ts
-@@ -23,7 +23,7 @@ import {
-     getMaxProfileLevel,
-     isSuit,
-     parsePageNumber,
--    unlockLevelComparer,
-+    unlockOrderComparer,
-     uuidRegex,
- } from "./utils"
- import { contractSessions, enqueueEvent, getSession } from "./eventHandler"
-@@ -657,10 +657,10 @@ function generateSelectPage(
+@@ -658,7 +658,7 @@ function generateSelectPage(
                  unlockable.Properties.UnlockLevel =
                      controller.masteryService
                          .getMasteryForUnlockable(unlockable, gameVersion)
@@ -19,8 +10,5 @@ index bd33b144..1e5bccae 100644
 +                        ?.Level.toString() ?? ""
                  return unlockable
              })
--            .sort(unlockLevelComparer),
-+            .sort(unlockOrderComparer),
-         UserCentric: generateUserCentric(contractData, userId, gameVersion)!,
-     }
+             .sort(unlockLevelComparer)
  
