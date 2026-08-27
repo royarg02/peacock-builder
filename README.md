@@ -53,6 +53,9 @@ By default, the following patches are applied during build:
 * `disable-roadmap-modal.patch`: Disables roadmap popup on first boot, also
   doesn't popup when switching back to official servers.
 * `remove-store-tab.patch`: Removes the store tab from the main menu.
+* `steam-apikey-file.patch`: Sets the Steam authentication method to
+  `STEAM_STRICT`, and accepts the required api key from `steamapi.key` at the
+  same location as the server launch script.
 
 [1]: https://thepeacockproject.org
 [2]: https://github.com/royarg02/peacock-builder#patches-included

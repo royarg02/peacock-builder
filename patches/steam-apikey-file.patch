@@ -1,0 +1,43 @@
+diff --git a/components/entitlementStrategies.ts b/components/entitlementStrategies.ts
+index 9152dd03..78046085 100644
+--- a/components/entitlementStrategies.ts
++++ b/components/entitlementStrategies.ts
+@@ -16,6 +16,7 @@
+  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
+  */
+ 
++import { existsSync, readFileSync } from "fs"
+ import axios, { AxiosError, AxiosResponse } from "axios"
+ import { log, LogLevel } from "./loggingInterop"
+ import { userAuths } from "./officialServerAuth"
+@@ -124,6 +125,7 @@ export class SteamStrategy extends EntitlementStrategy {
+         super()
+ 
+         const method = getFlag("steamAuthenticationMethod") as SteamAuthMethod
++        const STEAM_APIKEY_FILE = "steamapi.key"
+ 
+         switch (method) {
+             case "BACKEND": {
+@@ -143,6 +145,9 @@ export class SteamStrategy extends EntitlementStrategy {
+             }
+             case "STEAM":
+             case "STEAM_STRICT": {
++                if (existsSync(STEAM_APIKEY_FILE)) {
++                    this._apiKey = readFileSync(STEAM_APIKEY_FILE).toString()
++                }
+                 if (!this._apiKey) {
+                     log(
+                         LogLevel.WARN,
+diff --git a/components/flags.ts b/components/flags.ts
+index 0fb6eb6..28da165 100644
+--- a/components/flags.ts
++++ b/components/flags.ts
+@@ -140,7 +140,7 @@ export const defaultFlags: Flags = {
+                     "STEAM",
+                     "STEAM_STRICT",
+                 ],
+-                default: "BACKEND",
++                default: "STEAM_STRICT",
+                 showIngame: false,
+             },
+             steamApiKey: {
