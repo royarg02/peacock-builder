@@ -1,0 +1,12 @@
+diff --git a/components/inventory.ts b/components/inventory.ts
+index be4a49ec..6a751eb1 100644
+--- a/components/inventory.ts
++++ b/components/inventory.ts
+@@ -65,6 +65,7 @@ export const ISOLATED_UNLOCKABLES_EXEMPT = [
+     "TOKEN_OUTFIT_HERO_MINININJA_SUIT", // Futo Suit
+     "TOKEN_OUTFIT_HERO_FREEDOMFIGHTERS_SUIT", // Freedom Phantom Suit
+     "TOKEN_OUTFIT_HERO_LYNCH_SUIT", // Lynch Suit
++    "TOKEN_PROP_DEVICE_FILUR_RUBBERDUCK_PROXIMITY_EMETIC", // In-flu-ential Duck
+ ]
+ 
+ const DELUXE_DATA = [

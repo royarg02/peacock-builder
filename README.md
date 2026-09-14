@@ -56,6 +56,11 @@ By default, the following patches are applied during build:
 * `steam-apikey-file.patch`: Sets the Steam authentication method to
   `STEAM_STRICT`, and accepts the required api key from `steamapi.key` at the
   same location as the server launch script.
+* `exempt-influential-duck.patch`: Exempts _The In-flu-ential Duck_ from
+  Isolated Unlockables, so stays in inventory even if
+  `enableIsolatedUnlockables` flag is `false`.
+* `include-smartcasual-collectors.patch`: Includes missing _Smart Casual Pack_
+  and _Collector's Pack_ unlockables in the inventory.
 
 [1]: https://thepeacockproject.org
 [2]: https://github.com/royarg02/peacock-builder#patches-included
