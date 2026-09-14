@@ -2,12 +2,12 @@ diff --git a/components/menus/menuSystem.ts b/components/menus/menuSystem.ts
 index 8a33c2bb..e8333bab 100644
 --- a/components/menus/menuSystem.ts
 +++ b/components/menus/menuSystem.ts
-@@ -305,7 +305,7 @@ export class MenuSystemDatabase {
+@@ -437,7 +437,7 @@ export class MenuSystemDatabase {
                          },
                      }
                  case "/pages/hub/modals/roadmap/modal.json":
 -                    return getConfig("Roadmap", false)
-+                    return undefined
++                    return {}
                  case "/pages/hub/hub_page.json":
                      return getConfig("HubPageData", false)
                  case "/pages/hub/data/isfullmenuavailable.json":

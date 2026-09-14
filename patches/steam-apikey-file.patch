@@ -32,7 +32,7 @@ diff --git a/components/flags.ts b/components/flags.ts
 index 0fb6eb6..28da165 100644
 --- a/components/flags.ts
 +++ b/components/flags.ts
-@@ -140,7 +140,7 @@ export const defaultFlags: Flags = {
+@@ -146,7 +146,7 @@ export const defaultFlags: Flags = {
                      "STEAM",
                      "STEAM_STRICT",
                  ],

@@ -2,7 +2,7 @@ diff --git a/components/menus/hub.ts b/components/menus/hub.ts
 index 8a59e1ef..c310cb8e 100644
 --- a/components/menus/hub.ts
 +++ b/components/menus/hub.ts
-@@ -252,7 +252,6 @@ export function getHubData(gameVersion: GameVersion, userId: string) {
+@@ -259,7 +259,6 @@ export function getHubData(gameVersion: GameVersion, userId: string) {
          },
          StoryData: makeCampaigns(gameVersion, userId),
          FilterData: getVersionedConfig("FilterData", gameVersion, false),
