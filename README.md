@@ -61,6 +61,8 @@ By default, the following patches are applied during build:
   `enableIsolatedUnlockables` flag is `false`.
 * `include-collectorspack.patch`: Includes missing _Collector's Pack_
   unlockables in the inventory.
+* `playnext-introvideo.patch`: Adds IntroVideo support to PlayNext menu, for
+  missions that play cinematics upon entering from post scoring menu.
 
 [1]: https://thepeacockproject.org
 [2]: https://github.com/royarg02/peacock-builder#patches-included
