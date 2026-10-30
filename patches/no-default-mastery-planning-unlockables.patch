@@ -7,7 +7,7 @@ index bd33b144..1e5bccae 100644
                      controller.masteryService
                          .getMasteryForUnlockable(unlockable, gameVersion)
 -                        ?.Level.toString() ?? "1"
-+                        ?.Level.toString() ?? ""
++                        ?.Level.toString() ?? undefined
                  return unlockable
              })
              .sort(unlockLevelComparer)

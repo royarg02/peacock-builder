@@ -10,7 +10,7 @@ index be4a49e..063fb2c 100644
      LAMBIC_UNLOCKABLES,
      MAKESHIFT_UNLOCKABLES,
      PENICILLIN_UNLOCKABLES,
-@@ -74,6 +75,7 @@ const DELUXE_DATA = [
+@@ -77,6 +78,7 @@ const DELUXE_DATA = [
      ...H1_GOTY_UNLOCKABLES,
      ...H1_REQUIEM_UNLOCKABLES,
      ...H2_RACCOON_STINGRAY_UNLOCKABLES,
@@ -18,15 +18,7 @@ index be4a49e..063fb2c 100644
      ...MAKESHIFT_UNLOCKABLES,
      ...SIN_ENVY_UNLOCKABLES,
      ...SIN_GLUTTONY_UNLOCKABLES,
-@@ -84,6 +86,7 @@ const DELUXE_DATA = [
-     ...SIN_WRATH_UNLOCKABLES,
-     ...TRINITY_UNLOCKABLES,
-     ...WINTERSPORTS_UNLOCKABLES,
-+    ...SMART_CASUAL_UNLOCKABLES,
-     ...SAMBUCA_UNLOCKABLES,
-     ...PENICILLIN_UNLOCKABLES,
-     ...PENICILLIN_ITEMS_UNLOCKABLES,
-@@ -428,6 +431,15 @@ export class InventoryService {
+@@ -433,6 +435,15 @@ export class InventoryService {
                      )
                  }
  

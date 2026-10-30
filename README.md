@@ -59,8 +59,8 @@ By default, the following patches are applied during build:
 * `exempt-influential-duck.patch`: Exempts _The In-flu-ential Duck_ from
   Isolated Unlockables, so stays in inventory even if
   `enableIsolatedUnlockables` flag is `false`.
-* `include-smartcasual-collectors.patch`: Includes missing _Smart Casual Pack_
-  and _Collector's Pack_ unlockables in the inventory.
+* `include-collectorspack.patch`: Includes missing _Collector's Pack_
+  unlockables in the inventory.
 
 [1]: https://thepeacockproject.org
 [2]: https://github.com/royarg02/peacock-builder#patches-included

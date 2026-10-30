@@ -1,24 +1,15 @@
 diff --git a/components/flags.ts b/components/flags.ts
-index 0fb6eb6..28da165 100644
+index 0c7b6250..6d847448 100644
 --- a/components/flags.ts
 +++ b/components/flags.ts
-@@ -34,7 +34,7 @@ export const defaultFlags: Flags = {
+@@ -59,7 +59,7 @@ export const defaultFlags: Flags = {
                  category: "Gameplay",
-                 title: "gameplayUnlockAllShortcuts",
-                 desc: "When set to true, all shortcuts will always be unlocked.",
--                default: false,
-+                default: true,
-             },
-             gameplayUnlockAllFreelancerMasteries: {
-                 category: "Gameplay",
-@@ -53,7 +53,7 @@ export const defaultFlags: Flags = {
-                 category: "Gameplay",
-                 title: "enableMasteryProgression",
-                 desc: "When set to false, mastery progression will be disabled and all unlockables will be awarded at the beginning",
+                 title: "enableIsolatedUnlockables",
+                 desc: "Decides if items are unlocked when there are no associated unlocking approaches. Requires enableMasteryProgression to be true.",
 -                default: true,
 +                default: false,
              },
-             enableIsolatedUnlockables: {
+             hideGhostModeChallengeTile: {
                  category: "Gameplay",
 @@ -108,13 +108,13 @@ export const defaultFlags: Flags = {
                  category: "Services",
